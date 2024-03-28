@@ -8,6 +8,8 @@ import dataprocessing
 root = tk.Tk()
 
 
+
+
 root.geometry("900x900")
 
 
@@ -16,17 +18,24 @@ root.title("Statbotics APP")
 
 mainheadingfont = font.Font(size=30)
 
-mainheading = tk.Label(root, text="frc", font= mainheadingfont)
+
+
+mainheading = tk.Label(root, text="STATBOTICS FRC APP", font= mainheadingfont)
 mainheading.place(x=300, y=12) 
 
 
 
 entry = tk.Entry(root, width=20)  
-control = dataprocessing.appcontrol()
+control = dataprocessing.appcontrol() 
 entry.place(x=350, y=450) 
-entry.bind('<Return>', control.on_enter(entry))  
-stats = api.teaminformation() 
+def onenter(event):
+    control.on_enter(entry) 
+    responsename = control.getteamresponsename()
+    answerlabel.config(text=responsename)
 
+entry.bind('<Return>', onenter)  
+answerlabel = tk.Label(root, text="", font=mainheadingfont) 
+answerlabel.place(x=10,y=200)
 
 # stats.get_team_name(int(entry.get())) 
 
