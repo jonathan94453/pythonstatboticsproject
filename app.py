@@ -3,9 +3,9 @@ import tkinter as tk
 from tkinter import font 
 import api 
 import dataprocessing 
+import customtkinter 
 
-
-root = tk.Tk()
+root = customtkinter.CTk()
 
 
 
@@ -35,7 +35,23 @@ def onenter(event):
 
 entry.bind('<Return>', onenter)  
 answerlabel = tk.Label(root, text="", font=mainheadingfont) 
-answerlabel.place(x=10,y=200)
+answerlabel.place(x=10,y=200) 
+
+
+def quitcommand():
+    control.exitapp(root)
+
+
+
+
+quitbutton = tk.Button(root, width=40, text="QUIT", command=quitcommand)
+quitbutton.place(x=30,y=100)
+
+
+
+
+
+
 
 # stats.get_team_name(int(entry.get())) 
 
