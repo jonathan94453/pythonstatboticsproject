@@ -5,46 +5,35 @@ import api
 import dataprocessing 
 import customtkinter 
 
+ 
+#app object 
 root = customtkinter.CTk()
 
 
 
-
+#set the size of the customtkinter object 
 root.geometry("900x900")
 
-
-root.configure(background="blue") 
-root.title("Statbotics APP") 
-
-mainheadingfont = font.Font(size=30)
+root.title("Statbotics app") 
+#Font object 
+mainheadingfont = customtkinter.CTkFont(size=30)
 
 
 
-mainheading = tk.Label(root, text="STATBOTICS FRC APP", font= mainheadingfont)
+mainheading = customtkinter.CTkLabel(root, text="STATBOTICS FRC APP", font= mainheadingfont)
+Introheading = customtkinter.CTkLabel(root, text="Welcome to your FRC Statistics Portal", font=mainheadingfont)
 mainheading.place(x=300, y=12) 
+Introheading.place(x=300, y=80)
+
+epabutton = customtkinter.CTkButton(root, width=40, command=)
 
 
 
-entry = tk.Entry(root, width=20)  
-control = dataprocessing.appcontrol() 
-entry.place(x=350, y=450) 
-def onenter(event):
-    control.on_enter(entry) 
-    responsename = control.getteamresponsename()
-    answerlabel.config(text=responsename)
 
-entry.bind('<Return>', onenter)  
-answerlabel = tk.Label(root, text="", font=mainheadingfont) 
-answerlabel.place(x=10,y=200) 
-
-
+# quit logic 
 def quitcommand():
     control.exitapp(root)
-
-
-
-
-quitbutton = tk.Button(root, width=40, text="QUIT", command=quitcommand)
+quitbutton = customtkinter.CTkButton(root, width=40, text="QUIT", command=quitcommand)
 quitbutton.place(x=30,y=100)
 
 
@@ -53,13 +42,7 @@ quitbutton.place(x=30,y=100)
 
 
 
-# stats.get_team_name(int(entry.get())) 
-
-# adding the main loop function on the tk object which allows the app to run with the changes made 
 
 
-
-
-
-
+# loopend
 root.mainloop() 
