@@ -1,10 +1,7 @@
+import statbotics
 
+stats = statbotics.Statbotics() 
 
-
-number1 = int(input("enter: ")) 
-
-number2 = int(input("enter: 2")) 
-
-answer = number1/number2 
-
-print(answer) 
+printstatement = stats.get_team_events(254, 2024,fields=[""])
+ 
+print(printstatement)
