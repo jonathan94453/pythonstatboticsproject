@@ -14,3 +14,8 @@ class teaminformation:
         json_response = self.statbotics.get_team(teamnumber) 
         teamepa = json_response.get("norm_epa") 
         return teamepa 
+    def get_team_win_rate(self, teamnumber):
+        json_response = self.statbotics.get_team(teamnumber) 
+        rawrate = json_response.get('winrate')
+        teamwinrate = rawrate * 100 
+        return str(teamwinrate) 

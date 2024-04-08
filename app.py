@@ -26,6 +26,16 @@ def giveteamcurrentepa(Teamnumber):
     else:
         return jsonify({'error': 'Team EPA not found'}), 404  
         return teamnormepa 
+ 
+@app.route("/LutheranRoboteers/TeamWinRate/<Teamnumber>", methods=['GET']) 
+def giveteamwinrate(Teamnumber):
+    control = dataprocessing.appcontrol() 
+    control.findteamwinrate(Teamnumber) 
+    teamwinrate = control.get_teamwinrate() 
+    return teamwinrate 
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True) 
